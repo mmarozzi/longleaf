@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  </head>
+  <body>
+    <%= image_tag attachments.inline["longleaf.png"].url, alt: "Longleaf Logo" %>
+
+    <h1>Loan Terms</h1>
+    <p>Hello <%= @loan.name %>,</p>
+    <p>Here are the loan terms for your review</p>
+    <p>Please find attached the termsheet for your loan.</p>
+
+    <p><%= link_to "See document", attachments.inline["termsheet_#{@loan.id}.pdf"].url %></p>
+  </body>
+</html>

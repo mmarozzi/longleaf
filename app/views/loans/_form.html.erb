@@ -1,0 +1,248 @@
+<div data-controller="navigation">
+  <div class="max-w-3xl mx-auto px-4 py-10 bg-gray-100 rounded-lg">
+    <!-- Progress Bar -->
+    <div class="h-1 relative max-w-screen-lg mx-auto -top-10 left-0">
+      <div class="bg-emerald-100 h-full rounded-lg">
+        <div class="bg-emerald-500 h-full rounded-lg" style="width: 0%;" data-navigation-target="progressBar"></div>
+      </div>
+    </div>
+    <%= form_for loan do |form| %>
+      <div>
+        <!-- Top Navigation -->
+        <div class="border-b-2 py-2">
+          <div class="flex-1 pb-10">
+            <div>
+              <div class="text-lg font-bold text-gray-700 leading-tight">
+                <%= image_tag "longleaf.png", class: "h-16", alt: "longleaf" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Top Navigation -->
+
+        <!-- Step Content -->
+        <div class="py-10">
+          <div data-navigation-target="content" class="hidden" data-index="0">
+            <div class="mb-5">
+              <span>
+                <%= form.label :address, "1- Address", class: "form-label" %>
+              </span>
+            </div>
+
+            <div class="mb-5">
+              <div class="relative mt-2 rounded-md shadow-sm">
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <span class="text-bold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                    </svg>
+                  </span>
+                </div>
+                <%= form.text_field :address, class: "form-input w-full !pl-10", required: "required", "data-navigation-target": "input" %>
+              </div>
+            </div>
+          </div>
+
+          <div data-navigation-target="content" class="hidden" data-index="1">
+            <div class="mb-5">
+              <div class="mb-5">
+                <span>
+                  <%= form.label :loan_term, "2- Loan Term (in months)", class: "form-label" %>
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <div class="relative mt-2 rounded-md shadow-sm">
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <span class="text-bold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-week" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" />
+                    <path d="M16 3v4" />
+                    <path d="M8 3v4" />
+                    <path d="M4 11h16" />
+                    <path d="M8 14v4" />
+                    <path d="M12 14v4" />
+                    <path d="M16 14v4" />
+                  </svg>
+                </div>
+                <%= form.number_field :loan_term, class: "form-input w-full !pl-10", min: 1, max: 12, step: "1", required: "required", "data-navigation-target": "input" %>
+              </div>
+            </div>
+
+          </div>
+
+          <div data-navigation-target="content" class="hidden" data-index="2">
+            <div class="mb-5">
+              <div class="mb-5">
+                <span>
+                  <%= form.label :purchase_price, "3- Purchase Price", class: "form-label" %>
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <div class="relative mt-2 rounded-md shadow-sm">
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <span class="text-bold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency-dollar" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
+                      <path d="M12 3v3m0 12v3" />
+                    </svg>
+                  </span>
+                </div>
+                <%= form.number_field :purchase_price, class: "form-input w-full !pl-10 ", required: "required", "data-navigation-target": "input" %>
+              </div>
+            </div>
+          </div>
+
+          <div data-navigation-target="content" class="hidden" data-index="3">
+          <div class="mb-5">
+            <div class="mb-5">
+              <span>
+                <%= form.label :repair_budget, "4- Repair Budget", class: "form-label" %>
+              </span>
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <div class="relative mt-2 rounded-md shadow-sm">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <span class="text-bold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency-dollar" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
+                      <path d="M12 3v3m0 12v3" />
+                    </svg>
+                  </span>
+              </div>
+              <%= form.number_field :repair_budget, class: "form-input w-full !pl-10", min: 0, step: "any", required: "required", "data-navigation-target": "input" %>
+            </div>
+          </div>
+        </div>
+
+        <div data-navigation-target="content" class="hidden" data-index="4">
+          <div class="mb-5">
+            <div class="mb-5">
+              <span>
+                <%= form.label :after_repair_value, "5- After repair value (ARV)", class: "form-label" %>
+              </span>
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <div class="relative mt-2 rounded-md shadow-sm">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <span class="text-bold">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency-dollar" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
+                      <path d="M12 3v3m0 12v3" />
+                    </svg>
+                </span>
+              </div>
+              <%= form.number_field :after_repair_value, class: "form-input w-full !pl-10", min: 0, step: "any", required: "required", "data-navigation-target": "input" %>
+            </div>
+          </div>
+        </div>
+
+        <div data-navigation-target="content" class="hidden" data-index="5">
+          <div class="mb-5">
+            <div class="mb-5">
+              <span>
+                <%= form.label :name, "6- Name", class: "form-label" %>
+              </span>
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <div class="relative mt-2 rounded-md shadow-sm">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <span class="text-bold">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-square-rounded" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 13a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z" />
+                    <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
+                    <path d="M6 20.05v-.05a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v.05" />
+                  </svg>
+                </span>
+              </div>
+              <%= form.text_field :name, class: "form-input w-full !pl-10", required: "required", "data-navigation-target": "input" %>
+            </div>
+          </div>
+        </div>
+
+        <div data-navigation-target="content" class="hidden" data-index="6">
+          <div class="mb-5">
+            <div class="mb-5">
+              <span>
+                <%= form.label :email, "7- Email", class: "form-label" %>
+              </span>
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <div class="relative mt-2 rounded-md shadow-sm">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <span class="text-bold">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+                    <path d="M3 7l9 6l9 -6" />
+                  </svg>
+                </span>
+              </div>
+              <%= form.email_field :email, class: "form-input w-full !pl-10", required: "required", "data-navigation-target": "input" %>
+            </div>
+          </div>
+        </div>
+
+        <div data-navigation-target="content" class="hidden" data-index="7">
+          <div class="mb-5">
+            <div class="mb-5">
+              <span>
+                <%= form.label :phone, "8- Phone", class: "form-label" %>
+              </span>
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <div class="relative mt-2 rounded-md shadow-sm">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <span class="text-bold">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+                </svg>
+                </span>
+              </div>
+              <%= form.text_field :phone, class: "form-input w-full !pl-10",
+                  required: "required", "data-navigation-target": "input" %>
+            </div>
+          </div>
+        </div>
+        <article class="text-pretty text-xs italic">
+          Press Enter to continue
+        </article>
+        <!-- / Step Content -->
+      </div>
+    <% end %>
+    <!-- Bottom Navigation -->
+    <div class="py-2">
+      <div class="max-w-3xl mx-auto px-4">
+        <div class="flex justify-between">
+          <div class="md:w-1/2 sm:w-full">
+            <button class="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-emerald-500 hover:bg-emerald-600 font-medium" data-action="click->navigation#previous">Anterior</button>
+            <button class="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-emerald-500 hover:bg-emerald-600 font-medium" data-action="click->navigation#next" data-navigation-target="btnNext">Siguiente</button>
+            <button class="hidden w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-emerald-500 hover:bg-emerald-600 font-medium" data-navigation-target="btnConfirm">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

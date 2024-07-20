@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select,
+.form-checkbox,
+.form-radio {
+    @apply bg-white border focus:ring-0 focus:ring-offset-0
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select,
+.form-checkbox {
+    @apply rounded;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select {
+    @apply text-2xl text-slate-800 leading-5 py-2 px-3 border-slate-200 hover:border-slate-300 focus:border-slate-300 shadow-sm;
+}
+
+.form-input,
+.form-textarea {
+    @apply placeholder-slate-400
+}
+
+.form-label {
+  @apply  text-2xl text-slate-500;
+}
