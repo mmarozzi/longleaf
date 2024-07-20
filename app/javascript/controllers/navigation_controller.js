@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["content", "input", "btnConfirm", "btnNext", "progressBar"]
+  static targets = ["content", "input", "btnPrevious", "btnConfirm", "btnNext", "progressBar"]
 
   connect() {
     this.index = 0
@@ -32,6 +32,8 @@ export default class extends Controller {
       }
     })
     this.updateProgressBar()
+
+    this.showHideButtons()
   }
 
   next(event) {
@@ -39,10 +41,6 @@ export default class extends Controller {
     if (this.isCurrentInputValid() && this.index < this.contentTargets.length - 1) {
       this.index++
       this.showCurrentDiv()
-    }
-    if (this.index === this.contentTargets.length - 1) {
-      this.btnConfirmTarget.classList.remove("hidden")
-      this.btnNextTarget.classList.add("hidden")
     }
   }
 
@@ -60,6 +58,22 @@ export default class extends Controller {
   handleKeydown(event) {
     if (event.keyCode === 13 && this.index !== this.contentTargets.length - 1) {
       this.next(event)
+    }
+  }
+
+  showHideButtons(){
+    if (this.index === 0)
+      this.btnPreviousTarget.classList.add("hidden")
+    else
+      this.btnPreviousTarget.classList.remove("hidden")
+
+    if (this.index === this.contentTargets.length - 1) {
+      this.btnConfirmTarget.classList.remove("hidden")
+      this.btnNextTarget.classList.add("hidden")
+    }
+    else {
+      this.btnConfirmTarget.classList.add("hidden")
+      this.btnNextTarget.classList.remove("hidden")
     }
   }
 

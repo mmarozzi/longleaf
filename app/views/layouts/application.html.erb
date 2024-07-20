@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <title><%= content_for(:title) || "Longleaf" %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,8 +19,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="flex flex-col grow bg-neutral-300">
+  <body class="h-full">
+    <main class="flex flex-col grow bg-neutral-300 h-full min-h-full">
       <%= render "layouts/flash" %>
       <%= yield %>
     </main>
